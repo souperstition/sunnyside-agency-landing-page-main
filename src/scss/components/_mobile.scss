@@ -1,0 +1,228 @@
+@use '../variables/' as *;
+
+@media (max-width: 750px) {
+	nav {
+		#logo {
+			align-self: flex-start;
+			margin-left: 1rem;
+		}
+
+		.hamburger {
+			display: block;
+			align-self: flex-end;
+			margin-right: 1rem;
+		}
+
+		.hamburger path {
+			transition: all 500ms;
+		}
+
+		.hamburger:hover path {
+			fill: $darkblue;
+		}
+
+		svg:hover {
+			cursor: pointer;
+		}
+
+		ul {
+			position: absolute;
+			z-index: 3;
+			margin: 0;
+			top: 3.25rem;
+			left: 3rem;
+			flex-direction: column;
+			align-self: center;
+			align-items: center;
+			background-color: $white;
+			padding: 4.5rem 0 3rem;
+			width: calc(100vw - 6rem);
+			gap: 2.5rem;
+			clip-path: polygon(0 10%, 94% 10%, 100% 0%, 100% 100%, 0 100%);
+			display: none;
+
+			.nav-links {
+				color: $ltgrayblue;
+				font-size: calc(18px + 1vw);
+			}
+
+			.nav-links:hover {
+				color: $darkblue;
+			}
+
+			#contact a {
+				background-color: $yellow;
+				font-size: calc(18px + 1vw);
+				padding: 1.5rem 2rem;
+				border-radius: 4rem;
+			}
+
+			#contact a:hover {
+				background-color: $alphayellow;
+				color: $darkblue;
+			}
+		}
+		.show {
+			display: flex;
+			animation: slide-down 1000ms forwards;
+		}
+		.hide {
+			display: flex;
+			animation: slide-up 1000ms forwards;
+		}
+
+		.preload {
+			animation-duration: 0s !important;
+			-webkit-animation-duration: 0s !important;
+			transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+		}
+
+		@keyframes fade-in {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fade-out {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes slide-down {
+			0% {
+				transform: scale(0);
+				transform-origin: top right;
+			}
+			100% {
+				transform: scale(1);
+				transform-origin: top right;
+			}
+		}
+
+		@keyframes slide-up {
+			0% {
+				transform: scale(1);
+				transform-origin: top right;
+			}
+			100% {
+				transform: scale(0);
+				transform-origin: top right;
+			}
+		}
+	}
+
+	#hero {
+		height: 100vh;
+		background-size: cover;
+		background-position: bottom center;
+		h1 {
+			font-size: 7vh;
+			margin-top: 2em;
+		}
+		#hero-arrow,
+		.arrow-hover {
+			top: 15vh;
+			margin: 0 auto;
+			transform: scale(1.5);
+		}
+	}
+
+	.content-container {
+		grid-template-columns: auto;
+		grid-template-rows: auto 70vh;
+	}
+
+	.content-text {
+		padding: 6vw;
+		text-align: center;
+		font-size: 20px;
+		order: 2;
+
+		h3 {
+			font-size: 8vw;
+		}
+
+		.content-link {
+			align-self: center;
+		}
+	}
+
+	#skills {
+		height: 200vh;
+		grid-template-columns: auto;
+		grid-template-rows: 100vh 100vh;
+
+		#graphic,
+		#photography {
+			height: 100vh;
+			background-position: top center;
+			padding: 50vh 6vw 0;
+			font-size: calc(16px + 1vw);
+			text-align: center;
+			line-height: 2;
+
+			h3 {
+				font-size: 2em;
+				margin-bottom: 1em;
+			}
+		}
+	}
+
+	#testimonials {
+		height: unset;
+		padding: 2rem 0 5rem;
+		h3 {
+			font-size: 2em;
+			margin: 2em 0;
+		}
+		.testimonials-container {
+			display: flex;
+			flex-direction: column;
+			gap: 5rem;
+		}
+		.card {
+			p {
+				font-size: calc(16px + 1vw);
+				flex: 0;
+			}
+
+			h4,
+			h5 {
+				font-size: calc(14px + 1vw);
+			}
+
+			img {
+				width: 10vh;
+				height: 10vh;
+			}
+		}
+	}
+
+	#images {
+		flex-wrap: wrap;
+		img {
+			flex: 1 0 50%;
+			height: 50vw;
+		}
+	}
+
+	#footer {
+		padding-top: 3em;
+		font-size: calc(14px + 1vw);
+
+		#logo-footer {
+			transform: scale(2);
+		}
+
+		.attribution {
+			padding-bottom: 1rem;
+		}
+	}
+}

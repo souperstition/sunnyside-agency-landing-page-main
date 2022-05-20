@@ -1,0 +1,53 @@
+@use '../variables/' as *;
+
+#hero {
+	width: 100vw;
+	height: calc(100vw / $ratio);
+	display: flex;
+	flex-direction: column;
+	background: url('../../../images/desktop/image-header.jpg') no-repeat;
+	background-size: cover;
+	color: $white;
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	font-family: $header-font;
+	font-weight: 900;
+	font-size: 4.5vw;
+	margin-top: 3em;
+	letter-spacing: 0.7vw;
+}
+
+#arrow {
+	position: relative;
+	margin: 6vw auto;
+	width: $arrow-width;
+	display: inline-block;
+	height: 0;
+	width: $arrow-width;
+}
+
+#hero-arrow {
+	position: relative;
+	top: 6vw;
+	z-index: 0;
+	margin: 0 auto;
+	width: $arrow-width;
+	filter: url('../../../images/arrow-hover.svg');
+}
+
+.arrow-hover {
+	opacity: 0;
+	width: $arrow-width;
+	position: absolute;
+	margin: 0 auto;
+	top: 6vw;
+	z-index: 1;
+	transition: opacity 500ms;
+}
+
+#arrow:hover .arrow-hover {
+	opacity: 1;
+}

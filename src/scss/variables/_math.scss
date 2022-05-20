@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+$ratio: math.div(16, 9);
+
+$arrow-width: 6vw;

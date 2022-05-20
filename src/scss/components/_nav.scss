@@ -1,0 +1,95 @@
+@use '../variables/' as *;
+
+nav {
+	position: fixed;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+	padding: 1.25rem 0;
+	font-size: $body-size;
+	font-family: $body-font;
+	transition: background-color 500ms;
+
+	.hamburger {
+		display: none;
+	}
+
+	ul {
+		list-style-type: none;
+		display: flex;
+		gap: 1em;
+		margin: 0 2rem;
+
+		a {
+			color: $white;
+			position: relative;
+			text-decoration: none;
+			font-size: $body-size;
+			padding: 0.5rem 1em;
+			border-radius: 35px;
+		}
+
+		.nav-links {
+			transition: color 500ms;
+		}
+
+		.nav-links:hover {
+			color: $darkblue;
+		}
+
+		#contact a {
+			background-color: $white;
+			color: $darknavy;
+			text-transform: uppercase;
+			font-family: $header-font;
+			font-weight: 900;
+			transition: all 500ms;
+		}
+
+		#contact:hover a {
+			background-color: $alphawhite;
+			color: $white;
+		}
+	}
+
+	#logo {
+		width: 124px;
+		height: 30px;
+		margin-left: 2rem;
+		border-top: 0.25rem solid transparent;
+		border-bottom: 0.25rem solid transparent;
+	}
+
+	#logo path {
+		transition: all 500ms;
+	}
+
+	#logo:hover path {
+		fill: $darkblue;
+	}
+}
+
+.scrolled {
+	background-color: $ltred;
+	box-shadow: 0.15rem 0.15rem 0.5rem rgba(0, 0, 0, 0.15);
+	a {
+		color: $darkblue;
+	}
+	.nav-links {
+		transition: background-color 500ms;
+		background-color: $alphawhite;
+	}
+	.nav-links:hover:before {
+		background-color: transparent;
+		border: 0.2rem solid transparent;
+	}
+	.nav-links:hover {
+		background-color: $white;
+	}
+
+	#contact:hover a {
+		color: $darkblue;
+	}
+}

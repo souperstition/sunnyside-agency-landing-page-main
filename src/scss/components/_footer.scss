@@ -1,0 +1,59 @@
+@use '../variables/' as *;
+
+footer {
+	background-color: $ltcyan;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 3rem;
+	padding: 3rem 0 0.5rem 0;
+
+	#logo-footer {
+		fill: $darkblue;
+		margin: 0 auto;
+		padding: 3px 0;
+		border-bottom: 3px solid transparent;
+		transition: border-bottom 500ms;
+	}
+
+	#logo-footer:hover {
+		border-bottom: 3px solid $yellow;
+	}
+
+	ul {
+		list-style-type: none;
+		display: flex;
+		justify-content: center;
+		gap: 4rem;
+		padding: 0;
+	}
+
+	a {
+		color: $darkcyan;
+		text-decoration: none;
+		transition: all 500ms;
+	}
+
+	a:hover {
+		color: $white;
+	}
+
+	#socials {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+
+		.icons path {
+			transition: all 500ms;
+		}
+
+		.icons:hover path {
+			fill: $white;
+		}
+	}
+
+	.attribution {
+		font-size: 11px;
+	}
+}

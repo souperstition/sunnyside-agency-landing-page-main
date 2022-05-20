@@ -1,0 +1,166 @@
+@use '../variables/' as *;
+
+.content-container {
+	display: grid;
+	width: 100vw;
+	grid-template-columns: 50vw 50vw;
+	padding: 0;
+	margin: 0;
+
+	img {
+		width: 100%;
+	}
+}
+
+.content-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 8.3vw;
+
+	h3 {
+		font-family: $header-font;
+		font-size: 3vw;
+		line-height: 1.2em;
+		font-weight: 900;
+		margin-bottom: 2rem;
+	}
+
+	p {
+		margin-bottom: 2rem;
+	}
+	.content-link {
+		align-self: flex-start;
+		text-decoration: none;
+		position: relative;
+		line-height: 0.5;
+		color: #000;
+		padding: 0 0.5rem;
+		font-family: $header-font;
+		text-transform: uppercase;
+	}
+	.content-link:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 0;
+		bottom: -5px;
+		height: 0;
+		border: 0.3rem solid $yellow;
+		background-color: $yellow;
+		border-radius: 0.3rem;
+		opacity: 0.25;
+		transition: opacity 500ms;
+	}
+
+	.content-link:hover:before {
+		opacity: 1;
+	}
+
+	#secondary-link:before {
+		border: 0.3rem solid $softred;
+		background-color: $softred;
+	}
+}
+
+#about {
+	scroll-padding: 0 !important;
+}
+
+#stand-out {
+	.content-text {
+		order: 2;
+	}
+}
+
+#skills {
+	display: grid;
+	height: calc(100vw/2.4);
+	h3 {
+		font-size: 2vw;
+		margin-bottom: 1rem;
+		font-family: $header-font;
+	}
+
+	#graphic,
+	#photography {
+		padding: 50% 10vw 0 10vw;
+		font-size: calc(12px + 0.25vw);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+#graphic {
+	background-image: url('../../../images/desktop/image-graphic-design.jpg');
+	background-size: cover;
+}
+#photography {
+	background-image: url('../../../images/desktop/image-photography.jpg');
+	background-size: cover;
+}
+
+#testimonials {
+	height: calc(100vw / $ratio);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin: 0 5vw;
+
+	h3 {
+		font-family: $header-font;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		color: $ltgrayblue;
+	}
+}
+
+.testimonials-container {
+	display: grid;
+	grid-template-columns: repeat(3, 30vw);
+	text-align: center;
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		padding: 0 3vw;
+		font-size: calc(12px + 0.15vw);
+
+		img {
+			width: 8vw;
+			height: 8vw;
+			margin: 0 auto 3rem;
+			border-radius: 50%;
+		}
+
+		p {
+			flex: 1;
+			margin-bottom: 2.5rem;
+			color: $darkblue;
+		}
+
+		h4 {
+			font-family: $header-font;
+			margin-bottom: 0.5rem;
+			font-weight: 900;
+		}
+
+		h5 {
+			color: $ltgrayblue;
+		}
+	}
+}
+
+#images {
+	display: flex;
+
+	img {
+		width: 25vw;
+	}
+}
