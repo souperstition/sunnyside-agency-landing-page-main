@@ -1,94 +1,183 @@
-# Frontend Mentor - Sunnyside agency landing page
+# Sunnyside Agency Landing Page
 
-![Design preview for the Sunnyside agency landing page coding challenge](./design/desktop-preview.jpg)
+![Design preview](./images/thumbs/desktop-preview.jpg)
 
-## Welcome! 👋
+This is a solution to the [Sunnyside agency landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef).
 
-Thanks for checking out this front-end coding challenge.
+## Table of contents
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+- [Overview](#overview)
+  - [Links](#links)
+  - [Built with](#built-with)
+- [My process](#my-process)
+- [Author](#author)
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+---
 
-## The challenge
+## Overview
 
-Your challenge is to build out this landing page and get it looking as close to the design as possible.
 
-This challenge focuses mostly on HTML & CSS. There's a tiny bit of JS included for the mobile navigation toggle. But you could also choose to do this without JS!
+![](./images/thumbs/screenshot1.png)
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
-Your users should be able to:
+### Links
 
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Built with
 
-## Where to find everything
+- Semantic HTML5 markup
+- Flexbox
+- CSS Grid
+- Sass
+- Javascript
+---
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+## My process
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+My goal with this challenge was to become more comfortable with Sass; in particular with organizing Sass modules into separate files. Now that the project is over, I don't think I can ever go back to writing normal CSS!
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+My style structure looks like this: 
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+```
+/scss
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+	/components
+    	_footer.scss
+    	_hero.scss
+    	_index.scss // forwards
+    	_mobile.scss
+    	_nav.scss
+    	_reset.scss // CSS reset by Josh Comeau
+    	_sections.scss
 
-## Building your project
+	/variables
+    	_colors.scss
+		_fonts.scss
+		_index.scss // forwards
+		_math.scss 
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+	index.scss // main file
+```
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+In the components directory, I separated my files into different parts of the site (ie. nav, hero, footer). The variables directory contained colors, fonts, and basic sizing information.
 
-## Deploying your project
+Finally, my main index.scss file was relatively empty, just containing references to the components and variables:
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+```
+@use './variables/' as *;
+@use './components/' as *;
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+In a future refactor, I may separate the mobile file into its own components as well. It got quite long by the end of the project! I found this structure fairly easy to work with, and it was nice being able to easily find the styles I was looking for.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+To get the mobile navbar to work, I used CSS clip-path to create the shape of the menu:
 
-## Create a custom `README.md`
+![](./images/thumbs/mobile-nav.png)
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```
+clip-path: polygon(0 10%, 94% 10%, 100% 0%, 100% 100%, 0 100%);
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Some javascript was needed to add the "show" and "hide" classes which were used for animations. 
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+```
+hamburger.addEventListener('click', () => {
+	ul.classList.toggle('show');
+	ul.classList.toggle('hide');
+	const isVisible = ul.classList.contains('show');
 
-## Submitting your solution
+	if (isVisible) {
+		document.addEventListener('click', e => {
+			if (!document.querySelector('.nav').contains(e.target) && e.target !== hamburger) {
+				ul.classList.remove('show');
+				ul.classList.add('hide');
+			}
+		});
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+		lis.forEach(li => {
+			li.addEventListener('click', () => {
+				ul.classList.remove('show');
+				ul.classList.add('hide');
+			});
+		});
+	}
+});
+```
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+The animations were done using very simple CSS (which could have been made even more simple using transitions rather than animations, but hindsight...): 
 
-## Sharing your solution
+```
+.show {
+	display: flex;
+	animation: slide-down 1000ms forwards;
+}
+.hide {
+	display: flex;
+	animation: slide-up 1000ms forwards;
+}
+@keyframes slide-down {
+	0% {
+		transform: scale(0);
+		transform-origin: top right;
+    }
+	100% {
+		transform: scale(1);
+		transform-origin: top right;
+	}
+}
 
-There are multiple places you can share your solution:
+@keyframes slide-up {
+	0% {
+		transform: scale(1);
+		transform-origin: top right;
+	}
+	100% {
+		transform: scale(0);
+		transform-origin: top right;
+	}
+}
+```
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+The main problem I ran into here was that the "hide" animation would run every time the page would load or refresh, which I solved by adding a preload class to remove animations. A setTimeout function removes this class and allows for animations to continue as normal.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+```
+setTimeout(function() {
+	ul.classList.remove('preload');
+}, 1000);
+```
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+I also decided to make the navbar sticky, and in doing so created the need for a background color for contrast. This was not specified in the design, but it follows the color scheme and allows for the text to be legible. 
 
-## Got feedback for us?
+Javascript was used to add this background color only when the user scrolls past the hero section:
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+```
+window.addEventListener('scroll', () => {
+	let scrolled = window.scrollY;
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+	if (scrolled <= heroHeight) {
+		navbar.classList.remove('scrolled');
+	} else {
+		navbar.classList.add('scrolled');
+	}
+});
+```
 
-**Have fun building!** 🚀
+Finally, to make sure things continued working as expected even if a user resized their browser window, I added an event listener to check for resizes and adjust as needed:
+
+```
+window.addEventListener('resize', () => {
+	heroHeight = hero.clientHeight - 5;
+	ul.classList.add('preload');
+	setTimeout(function() {
+		ul.classList.remove('preload');
+	}, 1000);
+});
+```
+---
+
+## Author
+
+- Website - [Danielle Lyle](https://itsdani.me)
+- Frontend Mentor - [@souperstition](https://www.frontendmentor.io/profile/souperstition)

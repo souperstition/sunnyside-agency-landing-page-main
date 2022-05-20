@@ -174,7 +174,7 @@ nav {
   height: 56.25vw;
   display: flex;
   flex-direction: column;
-  background: url("../../../images/desktop/image-header.jpg") no-repeat;
+  background: url("../../../images/image-header.jpg") no-repeat;
   background-size: cover;
   color: hsl(0deg, 0%, 100%);
 }
@@ -310,12 +310,12 @@ h1 {
 }
 
 #graphic {
-  background-image: url("../../../images/desktop/image-graphic-design.jpg");
+  background-image: url("../../../images/image-graphic-design.jpg");
   background-size: cover;
 }
 
 #photography {
-  background-image: url("../../../images/desktop/image-photography.jpg");
+  background-image: url("../../../images/image-photography.jpg");
   background-size: cover;
 }
 
@@ -485,22 +485,6 @@ footer .attribution {
     animation-duration: 0s !important;
     -webkit-animation-duration: 0s !important;
     transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
-  }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
   }
   @keyframes slide-down {
     0% {
