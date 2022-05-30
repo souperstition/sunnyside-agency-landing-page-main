@@ -1,4 +1,4 @@
-nav {
+header {
   position: fixed;
   display: flex;
   width: 100%;
@@ -10,16 +10,16 @@ nav {
   font-family: "Barlow", sans-serif;
   transition: background-color 500ms;
 }
-nav .hamburger {
+header .hamburger {
   display: none;
 }
-nav ul {
+header ul {
   list-style-type: none;
   display: flex;
   gap: 1em;
   margin: 0 2rem;
 }
-nav ul a {
+header ul a {
   color: hsl(0deg, 0%, 100%);
   position: relative;
   text-decoration: none;
@@ -27,13 +27,13 @@ nav ul a {
   padding: 0.5rem 1em;
   border-radius: 35px;
 }
-nav ul .nav-links {
+header ul .nav-links {
   transition: color 500ms;
 }
-nav ul .nav-links:hover {
+header ul .nav-links:hover {
   color: hsl(198deg, 62%, 26%);
 }
-nav ul #contact a {
+header ul #contact a {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(212deg, 27%, 19%);
   text-transform: uppercase;
@@ -41,21 +41,21 @@ nav ul #contact a {
   font-weight: 900;
   transition: all 500ms;
 }
-nav ul #contact:hover a {
+header ul #contact:hover a {
   background-color: hsla(0deg, 0%, 100%, 0.3);
   color: hsl(0deg, 0%, 100%);
 }
-nav #logo {
+header #logo {
   width: 124px;
   height: 30px;
   margin-left: 2rem;
   border-top: 0.25rem solid transparent;
   border-bottom: 0.25rem solid transparent;
 }
-nav #logo path {
+header #logo path {
   transition: all 500ms;
 }
-nav #logo:hover path {
+header #logo:hover path {
   fill: hsl(198deg, 62%, 26%);
 }
 
