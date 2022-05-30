@@ -174,7 +174,7 @@ nav {
   height: 56.25vw;
   display: flex;
   flex-direction: column;
-  background: url("../../../images/image-header.jpg") no-repeat;
+  background: url("../images/image-header.jpg") no-repeat;
   background-size: cover;
   color: hsl(0deg, 0%, 100%);
 }
@@ -204,7 +204,7 @@ h1 {
   z-index: 0;
   margin: 0 auto;
   width: 6vw;
-  filter: url("../../../images/arrow-hover.svg");
+  filter: url("../images/arrow-hover.svg");
 }
 
 .arrow-hover {
@@ -310,12 +310,12 @@ h1 {
 }
 
 #graphic {
-  background-image: url("../../../images/image-graphic-design.jpg");
+  background-image: url("../images/image-graphic-design.jpg");
   background-size: cover;
 }
 
 #photography {
-  background-image: url("../../../images/image-photography.jpg");
+  background-image: url("../images/image-photography.jpg");
   background-size: cover;
 }
 
