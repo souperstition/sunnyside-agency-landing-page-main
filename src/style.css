@@ -174,7 +174,7 @@ nav {
   height: 56.25vw;
   display: flex;
   flex-direction: column;
-  background: url("../images/image-header.jpg") no-repeat;
+  background: url("../../../images/image-header.jpg") no-repeat;
   background-size: cover;
   color: hsl(0deg, 0%, 100%);
 }
@@ -204,7 +204,7 @@ h1 {
   z-index: 0;
   margin: 0 auto;
   width: 6vw;
-  filter: url("../images/arrow-hover.svg");
+  filter: url("../../../images/arrow-hover.svg");
 }
 
 .arrow-hover {
@@ -239,7 +239,7 @@ h1 {
   align-items: center;
   padding: 0 8.3vw;
 }
-.content-text h3 {
+.content-text h2 {
   font-family: "Fraunces", serif;
   font-size: 3vw;
   line-height: 1.2em;
@@ -293,7 +293,7 @@ h1 {
   display: grid;
   height: 41.6666666667vw;
 }
-#skills h3 {
+#skills h2 {
   font-size: 2vw;
   margin-bottom: 1rem;
   font-family: "Fraunces", serif;
@@ -310,12 +310,12 @@ h1 {
 }
 
 #graphic {
-  background-image: url("../images/image-graphic-design.jpg");
+  background-image: url("../../../images/image-graphic-design.jpg");
   background-size: cover;
 }
 
 #photography {
-  background-image: url("../images/image-photography.jpg");
+  background-image: url("../../../images/image-photography.jpg");
   background-size: cover;
 }
 
@@ -326,7 +326,7 @@ h1 {
   justify-content: space-evenly;
   margin: 0 5vw;
 }
-#testimonials h3 {
+#testimonials h2 {
   font-family: "Fraunces", serif;
   text-align: center;
   text-transform: uppercase;
@@ -356,12 +356,12 @@ h1 {
   margin-bottom: 2.5rem;
   color: hsl(198deg, 62%, 26%);
 }
-.testimonials-container .card h4 {
+.testimonials-container .card h3 {
   font-family: "Fraunces", serif;
   margin-bottom: 0.5rem;
   font-weight: 900;
 }
-.testimonials-container .card h5 {
+.testimonials-container .card h4 {
   color: hsl(210deg, 4%, 67%);
 }
 
@@ -534,7 +534,7 @@ footer .attribution {
     font-size: 20px;
     order: 2;
   }
-  .content-text h3 {
+  .content-text h2 {
     font-size: 8vw;
   }
   .content-text .content-link {
@@ -555,8 +555,8 @@ footer .attribution {
     text-align: center;
     line-height: 2;
   }
-  #skills #graphic h3,
-#skills #photography h3 {
+  #skills #graphic h2,
+#skills #photography h2 {
     font-size: 2em;
     margin-bottom: 1em;
   }
@@ -565,7 +565,7 @@ footer .attribution {
     height: unset;
     padding: 2rem 0 5rem;
   }
-  #testimonials h3 {
+  #testimonials h2 {
     font-size: 2em;
     margin: 2em 0;
   }
@@ -578,8 +578,8 @@ footer .attribution {
     font-size: calc(16px + 1vw);
     flex: 0;
   }
-  #testimonials .card h4,
-#testimonials .card h5 {
+  #testimonials .card h3,
+#testimonials .card h4 {
     font-size: calc(14px + 1vw);
   }
   #testimonials .card img {

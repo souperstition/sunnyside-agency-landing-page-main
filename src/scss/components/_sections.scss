@@ -19,7 +19,7 @@
 	align-items: center;
 	padding: 0 8.3vw;
 
-	h3 {
+	h2 {
 		font-family: $header-font;
 		font-size: 3vw;
 		line-height: 1.2em;
@@ -78,7 +78,7 @@
 #skills {
 	display: grid;
 	height: calc(100vw/2.4);
-	h3 {
+	h2 {
 		font-size: 2vw;
 		margin-bottom: 1rem;
 		font-family: $header-font;
@@ -112,7 +112,7 @@
 	justify-content: space-evenly;
 	margin: 0 5vw;
 
-	h3 {
+	h2 {
 		font-family: $header-font;
 		text-align: center;
 		text-transform: uppercase;
@@ -145,13 +145,13 @@
 			color: $darkblue;
 		}
 
-		h4 {
+		h3 {
 			font-family: $header-font;
 			margin-bottom: 0.5rem;
 			font-weight: 900;
 		}
 
-		h5 {
+		h4 {
 			color: $ltgrayblue;
 		}
 	}
