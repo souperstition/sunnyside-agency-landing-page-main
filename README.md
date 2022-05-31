@@ -2,8 +2,6 @@
 
 ![Design preview](./images/thumbs/desktop-preview.jpg)
 
-This is a solution to the [Sunnyside agency landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef).
-
 ## Table of contents
 
 - [Overview](#overview)
@@ -181,3 +179,5 @@ window.addEventListener('resize', () => {
 
 - Website - [Danielle Lyle](https://itsdani.me)
 - Frontend Mentor - [@souperstition](https://www.frontendmentor.io/profile/souperstition)
+
+This is a solution to the [Sunnyside agency landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef).
