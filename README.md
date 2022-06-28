@@ -2,25 +2,11 @@
 
 ## Table of Contents
 
-<<<<<<< HEAD
 - [Built with](#built-with)
 - [Project Setup](#project-setup)
 - [Designing the Mobile Navigation Menu](#designing-the-mobile-navigation-menu)
 - [Disabling Animations on Page Load](#disabling-animations-on-page-load)
 - [Planned Revisions](#planned-revisions)
-=======
-## Table of contents
-
-- [Overview](#overview)
-  - [Links](#links)
-  - [Built with](#built-with)
-- [My process](#my-process)
-- [Author](#author)
-
----
-
-## Overview
->>>>>>> 8a7b53c79ba44f110a2cfae0f780575e186fb6ae
 
 
 ## Built with
