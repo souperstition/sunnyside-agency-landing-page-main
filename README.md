@@ -1,48 +1,30 @@
-# Sunnyside Agency Landing Page
+[Demo](https://s3.amazonaws.com/itsdani.me/portfolio/sunnyside/index.html)
 
-![Design preview](./images/thumbs/desktop-preview.jpg)
+## Table of Contents
 
-This is a solution to the [Sunnyside agency landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef).
-
-## Table of contents
-
-- [Overview](#overview)
-  - [Links](#links)
-  - [Built with](#built-with)
-- [My process](#my-process)
-- [Author](#author)
-
----
-
-## Overview
+- [Built with](#built-with)
+- [Project Setup](#project-setup)
+- [Designing the Mobile Navigation Menu](#designing-the-mobile-navigation-menu)
+- [Disabling Animations on Page Load](#disabling-animations-on-page-load)
+- [Planned Revisions](#planned-revisions)
 
 
-![](./images/thumbs/screenshot1.png)
-
-
-### Links
-
-- Solution URL: [https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef/hub/sunnyside-agency-solution-htmlsassjs-bXKRvohZ0g](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef/hub/sunnyside-agency-solution-htmlsassjs-bXKRvohZ0g)
-- Live Site URL: [https://s3.amazonaws.com/itsdani.me/portfolio/sunnyside/index.html](https://s3.amazonaws.com/itsdani.me/portfolio/sunnyside/index.html)
-
-### Built with
+## Built with
 
 - Semantic HTML5 markup
 - Flexbox
 - CSS Grid
 - Sass
 - Javascript
----
 
-## My process
+## Project Setup
 
-My goal with this challenge was to become more comfortable with Sass; in particular with organizing Sass modules into separate files. Now that the project is over, I don't think I can ever go back to writing normal CSS!
+In order to stay on top of compiling SCSS code, I used the VS Code extension [Live Sass Compiler](#https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass). This extension compiles your SCSS into CSS automatically on save.
 
-My style structure looks like this: 
+I began my project by planning out the organization of my scss files. Here's a look at my folder structure: 
 
 ```
 /scss
-
 	/components
     	_footer.scss
     	_hero.scss
@@ -61,28 +43,32 @@ My style structure looks like this:
 	index.scss // main file
 ```
 
-In the components directory, I separated my files into different parts of the site (ie. nav, hero, footer). The variables directory contained colors, fonts, and basic sizing information.
+In the components directory, I separated my files into different parts of the site (ie. nav, hero, footer). The variables directory contained colors, fonts, and basic sizing information. My main index.scss file was relatively empty, just containing references to the components and variables:
 
-Finally, my main index.scss file was relatively empty, just containing references to the components and variables:
-
-```
+~~~scss
 @use './variables/' as *;
 @use './components/' as *;
-```
+~~~
 
-In a future refactor, I may separate the mobile file into its own components as well. It got quite long by the end of the project! I found this structure fairly easy to work with, and it was nice being able to easily find the styles I was looking for.
+I found this structure fairly easy to work with, and it was nice being able to easily find the styles I was looking for.
 
-To get the mobile navbar to work, I used CSS clip-path to create the shape of the menu:
+[[back to top]](#table-of-contents)
 
-![](./images/thumbs/mobile-nav.png)
+## Designing the Mobile Navigation Menu
 
-```
-clip-path: polygon(0 10%, 94% 10%, 100% 0%, 100% 100%, 0 100%);
-```
+To get the mobile navbar to work, I used the CSS clip-path property to create the shape of the menu:
 
-Some javascript was needed to add the "show" and "hide" classes which were used for animations. 
+![mobile nav](https://github.com/souperstition/sunnyside-agency-landing-page-main/blob/master/images/thumbs/mobile-nav.png?raw=true)
 
-```
+~~~scss
+ul {
+	clip-path: polygon(0 10%, 94% 10%, 100% 0%, 100% 100%, 0 100%);
+}
+~~~
+
+I used javascript to add a "show" class to the ul when the menu was open, and a "hide" class when the menu was closed. As a bonus, I wanted to make sure the menu would close not just when the menu icon was clicked but also if a user clicked **outside** the menu, or if the user clicks an item in the navigation menu. The *if* and *forEach* statements below accomplish this.
+
+~~~js
 hamburger.addEventListener('click', () => {
 	ul.classList.toggle('show');
 	ul.classList.toggle('hide');
@@ -104,11 +90,11 @@ hamburger.addEventListener('click', () => {
 		});
 	}
 });
-```
+~~~
 
-The animations were done using very simple CSS (which could have been made even more simple using transitions rather than animations, but hindsight...): 
+Now, when the menu is opened, it is given the "show class" and the CSS animation shown below is triggered. The same happens when the menu is closed. 
 
-```
+~~~scss
 .show {
 	display: flex;
 	animation: slide-down 1000ms forwards;
@@ -138,21 +124,23 @@ The animations were done using very simple CSS (which could have been made even 
 		transform-origin: top right;
 	}
 }
-```
+~~~
 
-The main problem I ran into here was that the "hide" animation would run every time the page would load or refresh, which I solved by adding a preload class to remove animations. A setTimeout function removes this class and allows for animations to continue as normal.
+[[back to top]](#table-of-contents)
 
-```
+## Disabling Animations on Page Load
+
+By default, the "hide" animation will run every time the page loads or refreshes. I solved this issue by adding a preload class to remove animations. A setTimeout function removes this class after the page loads and a short delay, and then allows for animations to continue as normal.
+
+~~~js
 setTimeout(function() {
 	ul.classList.remove('preload');
 }, 1000);
-```
+~~~
 
-I also decided to make the navbar sticky, and in doing so created the need for a background color for contrast. This was not specified in the design, but it follows the color scheme and allows for the text to be legible. 
+I also decided to make the navbar sticky, and in doing so ran into contrast issues. I decided that adding a slightly transparent background color which only appears when the use scrolls outside the hero section would make the text more legible. This was not specified in the project's design, but it follows the color scheme and allows for the text to be read. 
 
-Javascript was used to add this background color only when the user scrolls past the hero section:
-
-```
+~~~js
 window.addEventListener('scroll', () => {
 	let scrolled = window.scrollY;
 
@@ -162,11 +150,11 @@ window.addEventListener('scroll', () => {
 		navbar.classList.add('scrolled');
 	}
 });
-```
+~~~
 
-Finally, to make sure things continued working as expected even if a user resized their browser window, I added an event listener to check for resizes and adjust as needed:
+Finally, to make sure things continued working as expected even if a user resized their browser window, I added an event listener to check for resizes and adjust as needed. In case the hero section's height changes, the window will notice and update the variable. The window will also add the *preload* class to the ul again to make sure a window resize doesn't trigger an unwanted animation.
 
-```
+~~~js
 window.addEventListener('resize', () => {
 	heroHeight = hero.clientHeight - 5;
 	ul.classList.add('preload');
@@ -174,10 +162,12 @@ window.addEventListener('resize', () => {
 		ul.classList.remove('preload');
 	}, 1000);
 });
-```
----
+~~~
 
-## Author
+[[back to top]](#table-of-contents)
 
-- Website - [Danielle Lyle](https://itsdani.me)
-- Frontend Mentor - [@souperstition](https://www.frontendmentor.io/profile/souperstition)
+## Planned Revisions
+
+- Replace keyframe animations with transitions instead
+- Separate mobile scss files
+
