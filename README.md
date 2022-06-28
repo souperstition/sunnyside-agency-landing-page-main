@@ -1,5 +1,7 @@
 [Demo](https://s3.amazonaws.com/itsdani.me/portfolio/sunnyside/index.html)
 
+![screenshot](https://github.com/souperstition/sunnyside-agency-landing-page-main/blob/master/images/thumbs/screenshot1.png?raw=true)
+
 ## Table of Contents
 
 - [Built with](#built-with)
